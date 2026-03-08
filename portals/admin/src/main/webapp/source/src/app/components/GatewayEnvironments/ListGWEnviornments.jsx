@@ -104,11 +104,21 @@ function apiCall() {
                 const isPlatformGateway = item.gatewayType === 'api-platform'
                     || Boolean(platformGatewayId);
 
-                // Get status from additionalProperties for platform gateways
-                const gatewayStatus = resolvePlatformGatewayStatus(
-                    isPlatformGateway,
-                    additionalProperties.isActive,
-                );
+                // Prefer top-level status from API when present; else additionalProperties for platform gateways
+                let gatewayStatus = null;
+                if (isPlatformGateway) {
+                    const apiStatus = item.status;
+                    if (apiStatus === 'Active' || apiStatus === 'ACTIVE') {
+                        gatewayStatus = 'ACTIVE';
+                    } else if (apiStatus === 'Inactive' || apiStatus === 'INACTIVE') {
+                        gatewayStatus = 'INACTIVE';
+                    } else {
+                        gatewayStatus = resolvePlatformGatewayStatus(
+                            true,
+                            additionalProperties.isActive,
+                        );
+                    }
+                }
                 return {
                     ...item,
                     id: Utils.encodeEnvironmentId(item.id),
