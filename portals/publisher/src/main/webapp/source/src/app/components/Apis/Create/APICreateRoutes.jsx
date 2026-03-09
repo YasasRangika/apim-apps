@@ -75,14 +75,14 @@ let gatewayDetails = {
         description: 'API gateway offered by Azure cloud.', 
         isNew: false 
     },
-    [CONSTS.GATEWAY_TYPE.apiPlatform]: {
-        value: CONSTS.GATEWAY_TYPE.apiPlatform,
+    [CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform']: {
+        value: CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform',
         name: 'Platform Gateway',
         description: 'API gateway for platform-managed policies.',
         isNew: false,
     },
     PlatformGateway: {
-        value: CONSTS.GATEWAY_TYPE.apiPlatform,
+        value: CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform',
         name: 'Platform Gateway',
         description: 'API gateway for platform-managed policies.',
         isNew: false,

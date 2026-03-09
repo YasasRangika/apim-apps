@@ -92,7 +92,7 @@ const PolicyConfigurationEditDrawer: FC<PolicyConfigurationEditDrawerProps> = ({
     useEffect(() => {
         (async () => {
             if (policyObj) {
-                const isPolicyHubGateway = api.gatewayType === CONSTS.GATEWAY_TYPE.apiPlatform;
+                const isPolicyHubGateway = api.gatewayType === (CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
                 let policySpecVal = allPolicies?.find(
                     (policy: PolicySpec) =>
                         policy.name === policyObj.name &&

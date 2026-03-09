@@ -128,11 +128,12 @@ const Listing = () => {
     const getPoliciesList = () => {
         // removes irrelevant policies for the synapse gateway type
         return policies?.filter((policy) => {
-            return policy.supportedGateways.includes(CONSTS.GATEWAY_TYPE.synapse)
+            return policy.supportedGateways.includes(CONSTS?.GATEWAY_TYPE?.synapse ?? 'Synapse')
         }).map((policyObj) => {
             const policy = [];
+            const synapseGateway = CONSTS?.GATEWAY_TYPE?.synapse ?? 'Synapse';
             policyObj.supportedGateways.forEach((policyGateway) => {
-                if (CONSTS.GATEWAY_TYPE.synapse === policyGateway) {
+                if (synapseGateway === policyGateway) {
                     policy.push(policyObj.id);
                     policy.push(policyObj.displayName);
                     policy.push(policyObj.version);

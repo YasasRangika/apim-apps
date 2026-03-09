@@ -177,12 +177,12 @@ function MetaData(props) {
                                 <Typography component='p' variant='body1'>
                                     {api.gatewayType === 'wso2/synapse' && 'Regular'}
                                     {api.gatewayType === 'wso2/apk' && 'APK'}
-                                    {(api.gatewayType === API.CONSTS.GATEWAY_TYPE.apiPlatform
+                                    {(api.gatewayType === (API.CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform')
                                         || api.gatewayType === 'PlatformGateway')
                                         && 'Platform Gateway'}
                                     {api.gatewayType !== 'wso2/synapse'
                                         && api.gatewayType !== 'wso2/apk'
-                                        && api.gatewayType !== API.CONSTS.GATEWAY_TYPE.apiPlatform
+                                        && api.gatewayType !== (API.CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform')
                                         && api.gatewayType !== 'PlatformGateway'
                                         && api.gatewayType}
                                 </Typography>

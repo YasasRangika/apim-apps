@@ -255,7 +255,7 @@ const toPolicySpec = (policy, policyDefinitionText) => {
         version: policy.version,
         description: policy.description || '',
         applicableFlows: getApplicableFlows(policy),
-        supportedGateways: [CONSTS.GATEWAY_TYPE.apiPlatform],
+        supportedGateways: [CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform'],
         supportedApiTypes,
         policyAttributes: getPolicyAttributesFromDefinition(policyDefinitionText),
         isAPISpecific: false,

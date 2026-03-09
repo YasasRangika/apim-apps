@@ -92,7 +92,7 @@ const PoliciesExpansion: FC<PoliciesExpansionProps> = ({
     const { apiLevelPolicies } = useContext<any>(ApiOperationContext);
     const { api } = useContext<any>(APIContext);
     const [listOriginatedFromCommonPolicies, setListOriginatedFromCommonPolicies] = useState<string[]>([]);
-    const isPolicyHubGateway = api.gatewayType === CONSTS.GATEWAY_TYPE.apiPlatform;
+    const isPolicyHubGateway = api.gatewayType === (CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
 
     const resolvePolicySpec = async (
         policyId: string,

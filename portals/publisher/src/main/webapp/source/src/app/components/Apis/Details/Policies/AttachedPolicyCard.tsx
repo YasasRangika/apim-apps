@@ -61,7 +61,7 @@ const AttachedPolicyCard: FC<AttachedPolicyCardProps> = ({
     const { api } = useContext<any>(ApiContext);
     const { deleteApiOperation } = useContext<any>(ApiOperationContext);
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const isPolicyHubGatewayPolicy = api?.gatewayType === CONSTS.GATEWAY_TYPE.apiPlatform;
+    const isPolicyHubGatewayPolicy = api?.gatewayType === (CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
 
     /**
      * Handle policy delete

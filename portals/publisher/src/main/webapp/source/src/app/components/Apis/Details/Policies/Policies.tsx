@@ -102,7 +102,7 @@ const Policies: React.FC = () => {
     const { showMultiVersionPolicies } = Configurations.apis;
     const [selectedTab, setSelectedTab] = useState(api.type === 'GRAPHQL' || api.apiPolicies != null ? 0 : 1);
     const [gateway, setGateway] = useState<string>("");
-    const isPolicyHubGateway = api.gatewayType === CONSTS.GATEWAY_TYPE.apiPlatform;
+    const isPolicyHubGateway = api.gatewayType === (CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
 
     // If Choreo Connect radio button is selected in GatewaySelector, it will pass 
     // value as true to render other UI changes specific to the Choreo Connect.
@@ -190,7 +190,7 @@ const Policies: React.FC = () => {
      */
     const fetchPolicies = () => {
         if (isPolicyHubGateway) {
-            setGateway(CONSTS.GATEWAY_TYPE.apiPlatform);
+            setGateway(CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
             PolicyHub.listAllPolicySpecs()
                 .then((policySpecs) => {
                     const filteredPolicies = policySpecs.filter(

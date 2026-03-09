@@ -54,7 +54,7 @@ const ViewPolicy: React.FC<ViewPolicyProps> = ({
     const { api } = useContext<any>(ApiContext);
     const [policySpec, setPolicySpec] = useState<PolicySpec | null>(null);
     const [loading, setLoading] = useState(false);
-    const isPolicyHubGateway = api.gatewayType === CONSTS.GATEWAY_TYPE.apiPlatform;
+    const isPolicyHubGateway = api.gatewayType === (CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
 
     useEffect(() => {
         if (dialogOpen && isPolicyHubGateway) {

@@ -88,7 +88,7 @@ const SourceDetails: FC<SourceDetailsProps> = ({
 
     const { api } = useContext<any>(ApiContext);
     const normalizedSupportedGateways = Array.isArray(supportedGateways) ? supportedGateways : [];
-    const isPolicyHubGatewayPolicy = normalizedSupportedGateways.includes(CONSTS.GATEWAY_TYPE.apiPlatform);
+    const isPolicyHubGatewayPolicy = normalizedSupportedGateways.includes(CONSTS?.GATEWAY_TYPE?.apiPlatform ?? 'api-platform');
 
     /**
      * Function to handle supported gateways related checkbox changes
